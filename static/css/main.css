@@ -18,6 +18,10 @@ body, html {
   text-align: center;
 }
 
+.change_text {
+  text-transform: uppercase;
+}
+
 
 
 /**************************
@@ -85,6 +89,13 @@ header {
   border-radius: 8px;
 }
 
+.home_image_two {
+  height: 400px;
+  width: 375px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
 /*************************
 CSS for Footer Area
 *************************/
@@ -96,6 +107,47 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/*************************
+Media Queries 
+*************************/
+
+@media only all and (max-width: 768px) {
+
+    #sub_section_about_area {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-top: 40px;
+    }
+
+    .area_one {
+      width: 95%;
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+
+    .area_two {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 95%;
+      margin-left: 3%;
+      margin-right: 3%;
+    }
+
+    .home_image_two {
+      height: 400px;
+      width: 95%;
+      border: 1px solid black;
+      border-radius: 8px;
+    }
+
+    footer h5 {
+      font-size: 13px;
+    }
+
 }
 
 
