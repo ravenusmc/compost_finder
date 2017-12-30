@@ -13,6 +13,11 @@ CSS for both pages
   border-radius: 10px;
 }
 
+input {
+  margin-top: 5px;
+  width: 300px;
+}
+
 /**************************
 CSS code for the login page
 ***************************/
@@ -31,10 +36,17 @@ form {
   align-items: center;
 }
 
-
 /**************************
 CSS code for the sign up page
 ***************************/
+
+.signup_Heading {
+  color: yellow;
+  background-color: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
 #signUpMain {
   background-image: url('/static/img/trash.jpg');
@@ -47,3 +59,13 @@ CSS code for the sign up page
   justify-content: center;
   align-items: center;
 }
+
+.signup_button {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #784800;
+  border-color: #784800;
+  color:  #003078;
+}
+
