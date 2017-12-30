@@ -1,0 +1,11 @@
+/**************************
+This file will contain all of my CSS code for the login page
+***************************/
+
+main {
+  background-image: url('/static/img/trash.jpg');
+  height: 650px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

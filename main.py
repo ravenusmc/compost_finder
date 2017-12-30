@@ -11,6 +11,16 @@ app = Flask(__name__)
 def landing():
     return render_template('home.html')
 
+#This route take the user to the login page
+@app.route('/login')
+def login():
+  return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+  return render_template('signup.html')
+
+
 # set the secret key. keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
 
