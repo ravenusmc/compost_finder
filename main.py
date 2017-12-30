@@ -3,6 +3,10 @@ from flask import Flask, session, jsonify, redirect, url_for, escape, render_tem
 import json 
 import requests
 
+#Importing files that I created for the project
+from user import *
+from coord import *
+
 #Setting up Flask
 app = Flask(__name__)
 
@@ -14,11 +18,26 @@ def landing():
 #This route take the user to the login page
 @app.route('/login')
 def login():
-  return render_template('login.html')
+    return render_template('login.html')
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-  return render_template('signup.html')
+    if request.method == 'POST':
+        #Creating a user object 
+        user = User()
+        #Pulling the data that is needed from the form 
+        username = request.form['username']
+        email = request.form['email']
+        address = request.form['address']
+        city = request.form['city']
+        state = request.form['state']
+        zipcode = request.form['zip']
+        password = request.form['password']
+        #setting the properties to the user object
+        user.set_up_user(username, email, address, city, state, zipcode, password)
+        #Getting the lat and lng coordinates for the user. 
+
+    return render_template('signup.html')
 
 
 # set the secret key. keep this really secret:
