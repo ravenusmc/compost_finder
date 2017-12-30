@@ -13,6 +13,13 @@ CSS for both pages
   border-radius: 10px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 input {
   margin-top: 5px;
   width: 300px;
@@ -23,17 +30,22 @@ CSS code for the login page
 ***************************/
 
 #loginMain {
-  background-image: url('/static/img/trash.jpg');
+  background-image: url('/static/img/shovel_n_dirt.jpg');
   height: 650px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+#login_div {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /**************************
