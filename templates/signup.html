@@ -20,10 +20,16 @@
   </div>
 </nav>
 
-<main >
-  <div>
-    <h1>Login</h1>
-    <form>
+<main id='signUpMain'>
+  <div onmouseover="changeBackgroundImage();" onmouseout='changeImageBack();' id='background'>
+    <h1>Join the Movement!</h1>
+    <form method="POST">
+      <input placeholder='Username' name='username' type='text'/><br>
+      <input placeholder='Address' name='address' type='text'/><br>
+      <input placeholder='State' name='state' type='text'/></br>
+      <input placeholder='Zip Code' name='zip' type='text'/></br>
+      <input placeholder='Password' name='password' type='password'/>
+      <button>Submit</button>
     </form>
   </div>
 </main>
