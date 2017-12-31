@@ -28,13 +28,13 @@
   <div onmouseover="changeBackgroundImage();" onmouseout='changeImageBack();' id='background'>
     <h1>Join the Movement!</h1>
     <form method="POST">
-      <input placeholder='Username' name='username' type='text'/><br>
-      <input placeholder='Email' name='email' type='text'/><br>
-      <input placeholder='Address' name='address' type='text'/><br>
-      <input placeholder='City' name='city' type='text'/></br>
-      <input placeholder='State' name='state' type='text'/></br>
-      <input placeholder='Zip Code' name='zip' type='text'/></br>
-      <input placeholder='Password' name='password' type='password'/>
+      <input placeholder='Username' name='username' type='text' required/><br>
+      <input placeholder='Email' name='email' type='text' required/><br>
+      <input placeholder='Address' name='address' type='text' required/><br>
+      <input placeholder='City' name='city' type='text' required/></br>
+      <input placeholder='State' name='state' type='text' required/></br>
+      <input placeholder='Zip Code' name='zip' type='text' required/></br>
+      <input placeholder='Password' name='password' type='password' required/>
       <button class='signup_button'>Submit</button>
     </form>
   </div>

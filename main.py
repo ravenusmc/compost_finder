@@ -39,7 +39,6 @@ def signup():
         coords = Coord()
         #Getting the lat and lng coordinates for the user. 
         user = coords.get_coords(user)
-
     return render_template('signup.html')
 
 
