@@ -35,7 +35,10 @@ def signup():
         password = request.form['password']
         #setting the properties to the user object
         user.set_up_user(username, email, address, city, state, zipcode, password)
+        #setting up the coords object
+        coords = Coord()
         #Getting the lat and lng coordinates for the user. 
+        user = coords.get_coords(user)
 
     return render_template('signup.html')
 

@@ -5,24 +5,19 @@ import googlemaps
 from datetime import datetime
 gmaps = googlemaps.Client(key='AIzaSyDU9r9IHb-CSuo2nXSTZWsRugAAQFZIfwA')
 
-# class Coord():
+class Coord():
 
-#     def get_coords(self, user):
+    #This function gets the lat and long coordinates based on the user address. This method will 
+    #then also take those coordinates and add them to the user object. 
+    def get_coords(self, user):
+        #Setting a variable to get the full address
+        full_address = user.address + ', ' + user.city + ', ' + user.state
+        #Placing the full address into the geocode method
+        geocode_result = gmaps.geocode(full_address)
+        #Getting the exact coordinates from all the information that is returned from the method.
+        coordinates = geocode_result[0]['geometry']['location']
+        user.coords = coordinates
+        return user
         
 
-
-
-
-
-
-########## Scrap code ####
-# street = input('What is your full street address: ')
-# city = input('what is your city: ')
-# state = input('What is your state: ')
-
-# full = street + ', ' + city + ', ' +  state
-# # print(full)
-
-# geocode_result = gmaps.geocode(full)
-# print(geocode_result[0]['geometry']['location'])
     
