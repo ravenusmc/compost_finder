@@ -39,6 +39,8 @@ def signup():
         coords = Coord()
         #Getting the lat and lng coordinates for the user. 
         user = coords.get_coords(user)
+        #Checking to see if the user is in the database.
+        flag, not_found, password_no_match = user.check(username, password)
     return render_template('signup.html')
 
 
