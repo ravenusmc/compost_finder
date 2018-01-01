@@ -16,7 +16,12 @@ class Coord():
         geocode_result = gmaps.geocode(full_address)
         #Getting the exact coordinates from all the information that is returned from the method.
         coordinates = geocode_result[0]['geometry']['location']
-        user.coords = coordinates
+        #Here I am setting the lat and long coordinates to individual properties on the user object
+        user.lat = coordinates["lat"]
+        user.lng = coordinates["lng"]
+        print(user.lat)
+        print(user.lng)
+        #Returning the modified user object. 
         return user
         
 

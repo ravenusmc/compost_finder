@@ -6,6 +6,7 @@ import requests
 #Importing files that I created for the project
 from user import *
 from coord import *
+from db import *
 
 #Setting up Flask
 app = Flask(__name__)
@@ -25,6 +26,10 @@ def signup():
     if request.method == 'POST':
         #Creating a user object 
         user = User()
+        #creating the db object
+        db = Connection()
+        #setting up the coords object
+        coords = Coord()
         #Pulling the data that is needed from the form 
         username = request.form['username']
         email = request.form['email']
@@ -35,12 +40,13 @@ def signup():
         password = request.form['password']
         #setting the properties to the user object
         user.set_up_user(username, email, address, city, state, zipcode, password)
-        #setting up the coords object
-        coords = Coord()
         #Getting the lat and lng coordinates for the user. 
         user = coords.get_coords(user)
-        #Checking to see if the user is in the database.
-        flag, not_found, password_no_match = user.check(username, password)
+        #Encrypting the password
+        password, hashed = db.encrypt_pass(user)
+        # #Adding the user to the database
+        db.insert(user, hashed)
+        return redirect(url_for('login'))
     return render_template('signup.html')
 
 
