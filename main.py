@@ -11,16 +11,38 @@ from db import *
 #Setting up Flask
 app = Flask(__name__)
 
-#This route takes the user to the landing page
+#This route takes the user to the home page
 @app.route('/')
-def landing():
+def home():
     return render_template('home.html')
 
 #This route take the user to the login page
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        #Recieving the information from the user.
+        username = request.form['username']
+        password = request.form['password']
+        #creating the db object 
+        db = Connection()
+        #Checking to see if the user is in the database
+        flag, not_found, password_no_match = db.check(username, password)
+        #Conditional statement to test if the user is a member of the site.
+        if flag == True:
+            #If the user is in the database, the user gets sent to the index page.
+            session['username'] = request.form['username']
+            #Sending the user into the app
+            return redirect(url_for('landing'))
+        else:
+            #If the user is not in the database then they will be sent to the
+            #sign up page.
+            if not_found:
+                flash('Username not found, maybe sign up!')
+            elif password_no_match:
+                flash('Password does not match! Maybe sign up!')
     return render_template('login.html')
 
+#This route will take the user to the signup page
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -49,6 +71,21 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html')
 
+#This route will take the user to the landing page-once they sign in
+@app.route('/landing')
+def landing():
+    #This session will prevent users who have not signed up from coming in.
+    if 'username' not in session:
+        return redirect(url_for('signup'))
+    return render_template('landing.html')
+
+#This function is what will log out the user.
+@app.route('/sign_out')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    #Redirect to Landing page
+    return redirect(url_for('landing'))
 
 # set the secret key. keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'

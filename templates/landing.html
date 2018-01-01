@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
 
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/">Compost Finder</a>
+  <a class="navbar-brand" href="#">Compost Finder</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -16,27 +15,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/signup">Sign Up</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Sign Out</a>
+      </li>
     </ul>
   </div>
 </nav>
-
-<main id='loginMain'>
-  <div id='login_div'>
-    <h1 class='center'>Login</h1>
-    <!-- Error messaging -->
-      {% for message in get_flashed_messages() %}
-        <div class="alert alert-danger" role="alert">
-          {{ message }}
-        </div>
-      {% endfor %}
-    <!-- End Error messaging -->
-    <form method="POST">
-      <input placeholder='Username' name='username' type='text' required/><br>
-      <input placeholder='Password' name='password' type='password' required/>
-      <button class='signup_button'>Submit</button>
-    </form>
-  </div>
-</main>
-
 
 {% endblock %}

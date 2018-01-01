@@ -16,9 +16,9 @@ class Connection():
         self.cursor = self.conn.cursor()
 
     #This method will check to ensure that the username is in the database.
-    def check(self, user):
+    def check(self, username, password):
         #I first encode the password to utf-8
-        password = user.password.encode('utf-8')
+        password = password.encode('utf-8')
         #Creating the query for the database
         query = ("""SELECT * FROM users WHERE username = %s""")
         self.cursor.execute(query, (username,))
@@ -31,7 +31,7 @@ class Connection():
         #If the user name is in the database I move here to check if the password
         #is valid.
         else:
-            hashed = row[2].encode('utf-8')
+            hashed = row[9].encode('utf-8')
             if bcrypt.hashpw(password, hashed) == hashed:
                 flag = True
                 not_found = False
