@@ -79,6 +79,13 @@ def landing():
         return redirect(url_for('signup'))
     return render_template('landing.html')
 
+#This route will take the user to a page explaining why one should compost
+@app.route('/why')
+def why():
+    if 'username' not in session:
+        return redirect(url_for('signup'))
+    return render_template('why.html')
+
 #This function is what will log out the user.
 @app.route('/sign_out')
 def logout():

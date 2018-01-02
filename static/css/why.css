@@ -1,0 +1,27 @@
+/************************************** 
+This file will contain all of the CSS for the why page 
+***************************************/
+
+/************************************** 
+CSS code for entire page
+***************************************/
+
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.center {
+  text-align: center;
+}
+
+.change_text {
+  text-transform: uppercase;
+}
+
+/************************************** 
+CSS code for section one
+***************************************/ 
