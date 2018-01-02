@@ -25,3 +25,62 @@ body, html {
 /************************************** 
 CSS code for section one
 ***************************************/ 
+
+.section_one {
+  margin-top: 50px;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "area_one area_one"
+  "area_two area_three"
+  "area_two area_three"
+  "area_two area_three"
+  "area_four area_four"
+  "area_four area_four";
+}
+
+.section_one_area_one {
+  grid-area: area_one;
+}
+
+.section_one_area_two {
+  grid-area: area_two;
+}
+
+.section_one_area_three {
+  grid-area: area_three;
+  background-image: url('/static/img/leaf_n_dirt.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.section_one_area_four {
+  grid-area: area_four;
+}
+
+
+/************************************** 
+Media Queries area 
+***************************************/ 
+@media only all and (max-width: 768px) {
+
+    .section_one {
+      margin-left: 5%;
+      margin-right: 5%;
+      grid-gap: 0em;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas:
+      "area_one area_one"
+      "area_two area_two"
+      "area_four area_four";
+    }
+
+
+}
