@@ -22,25 +22,28 @@ body, html {
   text-transform: uppercase;
 }
 
+.main_whyPage_div {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 /************************************** 
 CSS code for section one
 ***************************************/ 
 
 .section_one {
   margin-top: 50px;
-  margin-left: 5%;
-  margin-right: 5%;
   display: grid;
   grid-gap: 1em;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(6, auto);
   grid-template-areas:
   "area_one area_one"
   "area_two area_three"
   "area_two area_three"
   "area_two area_three"
-  "area_four area_four"
   "area_four area_four";
+  border-bottom: 2px solid black;
 }
 
 .section_one_area_one {
@@ -64,6 +67,55 @@ CSS code for section one
   grid-area: area_four;
 }
 
+/************************************** 
+CSS code for section one
+***************************************/ 
+
+.section_two {
+  margin-top: 50px;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+  "sec_two_one sec_two_one sec_two_one"
+  "sec_two_two sec_two_three sec_two_four";
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+
+.section_two_area_one {
+  grid-area: sec_two_one;
+}
+
+.section_two_area_two {
+  grid-area: sec_two_two;
+  background-image: url('/static/img/plant_ground.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  height: 400px;
+}
+
+.section_two_area_three {
+  grid-area: sec_two_three;
+  background-image: url('/static/img/food.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.section_two_area_four {
+  grid-area: sec_two_four;
+  background-image: url('/static/img/baby.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
 
 /************************************** 
 Media Queries area 
@@ -71,8 +123,6 @@ Media Queries area
 @media only all and (max-width: 768px) {
 
     .section_one {
-      margin-left: 5%;
-      margin-right: 5%;
       grid-gap: 0em;
       grid-template-columns: repeat(2, auto);
       grid-template-rows: repeat(3, auto);
@@ -80,6 +130,10 @@ Media Queries area
       "area_one area_one"
       "area_two area_two"
       "area_four area_four";
+    }
+
+    .section_two {
+      display: none;
     }
 
 
