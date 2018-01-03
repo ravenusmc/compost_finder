@@ -11,6 +11,7 @@ CREATE TABLE users
   zipcode int NOT NUll,
   lat DECIMAL(9,5) NOT NUll,
   lng DECIMAL(9,5) NOT NULL,
+  type VARCHAR(15) NOT NULL,
   password VARCHAR(240) NOT NUll,
   PRIMARY KEY(user_id)
 );

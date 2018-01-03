@@ -19,8 +19,6 @@ class Coord():
         #Here I am setting the lat and long coordinates to individual properties on the user object
         user.lat = coordinates["lat"]
         user.lng = coordinates["lng"]
-        print(user.lat)
-        print(user.lng)
         #Returning the modified user object. 
         return user
         

@@ -53,10 +53,10 @@ class Connection():
     #This method will insert a new user into the database.
     def insert(self, user, hashed):
         self._SQL = """insert into users
-          (username, email, address, city, state, zipcode, lat, lng, password)
+          (username, email, address, city, state, zipcode, lat, lng, person_type, password)
           values
-          (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
-        self.cursor.execute(self._SQL, (user.username, user.email, user.address, user.city, user.state, user.zipcode, user.lat, user.lng, hashed))
+          (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+        self.cursor.execute(self._SQL, (user.username, user.email, user.address, user.city, user.state, user.zipcode, user.lat, user.lng, user.person_type, hashed))
         self.conn.commit()
 
 

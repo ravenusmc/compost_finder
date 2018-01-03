@@ -13,13 +13,15 @@ class User():
         self.password = ''
         self.lat = 0
         self.lng = 0
+        self.person_type = ''
 
     #This method will add the properties to the user object. (Probably could have done this in the init method.)
-    def set_up_user(self, username, email, address, city, state, zipcode, password):
+    def set_up_user(self, username, email, address, city, state, zipcode, person_type, password):
         self.username = username
         self.email = email
         self.address = address
         self.city = city
         self.state = state
         self.zipcode = zipcode
+        self.person_type = person_type
         self.password = password

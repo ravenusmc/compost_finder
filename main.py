@@ -59,16 +59,17 @@ def signup():
         city = request.form['city']
         state = request.form['state']
         zipcode = request.form['zip']
+        person_type = request.form['compost']
         password = request.form['password']
         #setting the properties to the user object
-        user.set_up_user(username, email, address, city, state, zipcode, password)
+        user.set_up_user(username, email, address, city, state, zipcode, person_type, password)
         #Getting the lat and lng coordinates for the user. 
         user = coords.get_coords(user)
         #Encrypting the password
         password, hashed = db.encrypt_pass(user)
         # #Adding the user to the database
-        db.insert(user, hashed)
-        return redirect(url_for('login'))
+        #db.insert(user, hashed)
+        #return redirect(url_for('login'))
     return render_template('signup.html')
 
 #This route will take the user to the landing page-once they sign in
