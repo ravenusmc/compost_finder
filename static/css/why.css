@@ -123,19 +123,34 @@ CSS code for section three
 .section_three {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-area: 
-  "sec_three_one sec_three_two";
-  border: 2px solid red;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+/*  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;*/
+  grid-template-areas: 
+  "sec_three_one sec_three_two"
+  "sec_three_three sec_three_three";
+  border-bottom: 2px solid black;
 }
 
 .section_three_area_one {
   grid-area: sec_three_one;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section_three_area_two {
   grid-area: sec_three_two;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section_three_area_three {
+  margin-top: 50px;
+  grid-area: sec_three_three
+  ;
 }
 
 
@@ -158,5 +173,12 @@ Media Queries area
       display: none;
     }
 
-
+    .section_three {
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: 
+      "sec_three_one"
+      "sec_three_two"
+      "sec_three_three";
+    }
 }
