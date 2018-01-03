@@ -120,6 +120,24 @@ CSS code for section two
 CSS code for section three
 ***************************************/ 
 
+.section_three {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-area: 
+  "sec_three_one sec_three_two";
+  border: 2px solid red;
+}
+
+.section_three_area_one {
+  grid-area: sec_three_one;
+}
+
+.section_three_area_two {
+  grid-area: sec_three_two;
+}
+
 
 /************************************** 
 Media Queries area 

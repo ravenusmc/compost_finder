@@ -29,7 +29,7 @@ website.
 # Issues / other 
 
 I do want to say that I took a lot of information, on my why page, from the website: http://www.toxipedia.org/display/FOC/Composting+101. If I ever launched this site, then I would change some of the information on that 
-page or contact them to use it. 
+page or contact them to use it. Information also gathered from https://www.smallfootprintfamily.com/10-things-you-should-not-put-in-a-compost-pile and https://www.smallfootprintfamily.com/100-things-you-can-compost.
 
 # Preview
 
