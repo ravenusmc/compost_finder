@@ -78,7 +78,20 @@ def landing():
     #This session will prevent users who have not signed up from coming in.
     if 'username' not in session:
         return redirect(url_for('signup'))
-    return render_template('landing.html')
+    #Pulling the username which I'll use in the database. 
+    username = session['username']
+    #Creating user object 
+    user = User()
+    #Creating a connection to the database 
+    db = Connection()
+    #Pulling the user information out of the database. 
+    row = db.pull_user_info(username)
+    #Building the user object from the information from the database
+    user.build_user(row)
+
+    db.find_by_city(user)
+
+    return render_template('landing.html', username = user.username)
 
 #This route will take the user to a page explaining why one should compost
 @app.route('/why')

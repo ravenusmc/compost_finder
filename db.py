@@ -59,5 +59,20 @@ class Connection():
         self.cursor.execute(self._SQL, (user.username, user.email, user.address, user.city, user.state, user.zipcode, user.lat, user.lng, user.person_type, hashed))
         self.conn.commit()
 
+    #This method will pull the user information out of the database to build a user object once logged in. 
+    def pull_user_info(self, username):
+        query = ("""SELECT * FROM users WHERE username = %s""")
+        self.cursor.execute(query, (username,))
+        row = self.cursor.fetchone()
+        return row
+
+    #This method will return all the users by city. 
+    def find_by_city(self, user):
+        query = ("""SELECT * FROM users WHERE city = %s""")
+        self.cursor.execute(query, (user.city,))
+        rows = self.cursor.fetchall()
+        print('TEST ONE',rows[0][1])
+        print(rows[1][1])
+
 
 

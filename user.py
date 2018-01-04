@@ -25,3 +25,15 @@ class User():
         self.zipcode = zipcode
         self.person_type = person_type
         self.password = password
+
+    #This method will build the user once they are logged in 
+    def build_user(self, row):
+        self.username = row[1]
+        self.email = row[2]
+        self.address = row[3]
+        self.city = row[4]
+        self.state = row[5]
+        self.zipcode = row[6]
+        self.lat = row[7]
+        self.lng = row[8]
+        self.person_type = row[9]
