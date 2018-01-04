@@ -68,8 +68,8 @@ def signup():
         #Encrypting the password
         password, hashed = db.encrypt_pass(user)
         # #Adding the user to the database
-        #db.insert(user, hashed)
-        #return redirect(url_for('login'))
+        db.insert(user, hashed)
+        return redirect(url_for('login'))
     return render_template('signup.html')
 
 #This route will take the user to the landing page-once they sign in
