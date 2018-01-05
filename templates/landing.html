@@ -25,7 +25,13 @@
   </div>
 </nav>
 
-{{ username }}
+<main>
+{% for user in users %}
+  <h5>Users: {{ user[1] }}</h5>
+  <h5>Email: {{ user[2] }}</h5>
+<!--   {{ user }} -->
+{% endfor %}
+</main>
 
 
 {% endblock %}

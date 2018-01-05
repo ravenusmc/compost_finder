@@ -68,6 +68,9 @@ class Connection():
 
     #This method will return all the users by city. 
     def find_by_city(self, user):
+        #pulling individuals who live in the same city as the user, do not have the users username 
+        #and are opposite of the user-if user is gardener than pull queries where users are a 
+        #neighbor
         query = ("""SELECT * FROM users WHERE city = %s AND username != %s AND type != %s""")
         self.cursor.execute(query, (user.city, user.username, user.person_type))
         rows = self.cursor.fetchall()
