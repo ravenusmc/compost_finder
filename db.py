@@ -68,11 +68,10 @@ class Connection():
 
     #This method will return all the users by city. 
     def find_by_city(self, user):
-        query = ("""SELECT * FROM users WHERE city = %s""")
-        self.cursor.execute(query, (user.city,))
+        query = ("""SELECT * FROM users WHERE city = %s AND username != %s AND type != %s""")
+        self.cursor.execute(query, (user.city, user.username, user.person_type))
         rows = self.cursor.fetchall()
-        print('TEST ONE',rows[0][1])
-        print(rows[1][1])
+        return rows
 
 
 

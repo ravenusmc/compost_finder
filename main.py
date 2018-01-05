@@ -89,7 +89,9 @@ def landing():
     #Building the user object from the information from the database
     user.build_user(row)
 
-    db.find_by_city(user)
+    users = db.find_by_city(user)
+    print('RESPONSE', users[0][2])
+    print(len(users))
 
     return render_template('landing.html', username = user.username)
 
