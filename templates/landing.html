@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/landing.css') }}">
 
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +26,25 @@
   </div>
 </nav>
 
-<main>
-{% for user in users %}
-  <h5>Users: {{ user[1] }}</h5>
-  <h5>Email: {{ user[2] }}</h5>
-<!--   {{ user }} -->
-{% endfor %}
+<main id='landingPage_main'>
+
+  <section>
+  </section>
+
+  <section class='section_two'>
+    <h1>People Willing to Provide Compost</h1>
+    <h3>In your area: </h3>
+    {% for user in users %}
+      <div class='info_section'>
+        <h5>Username: {{ user[1] }}</h5>
+        <h5>Email: {{ user[2] }}</h5>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section>
+  </section>
+
 </main>
 
 

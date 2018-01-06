@@ -1,0 +1,28 @@
+/****************************
+Generic CSS for the entire page 
+*****************************/
+.center {
+  text-align: center;
+}
+
+/****************************
+CSS For the main area
+*****************************/
+
+#landingPage_main {
+  margin-top: 50px;
+  display: grid; 
+  grid-template-columns: repeat(3, auto);
+}
+
+.section_two {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
