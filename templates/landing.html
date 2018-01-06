@@ -34,12 +34,42 @@
   <section class='section_two'>
     <h1>People Willing to Provide Compost</h1>
     <h3>In your area: </h3>
+
     {% for user in users %}
       <div class='info_section'>
-        <h5>Username: {{ user[1] }}</h5>
-        <h5>Email: {{ user[2] }}</h5>
+
+          <div class='user_info_area'>
+            <h5>Username: {{ user[1] }}</h5>
+            <h5>Email: {{ user[2] }}</h5>
+          </div>
+
+          <div id="map_{{ user[0] }}" class='map'></div>
+          <script type="text/javascript">
+          
+          $(document).ready(function(){
+
+              function initialize() {
+
+                  var user_{{ user[0] }} = {lat: {{ user[7] }}, lng: {{ user[8] }} };
+
+                  var map = new google.maps.Map(document.getElementById('map_{{ user[0] }}'), {
+                    zoom: 15,
+                    center: user_{{ user[0] }}
+                  });
+
+                  var marker = new google.maps.Marker({
+                    position: user_{{ user[0] }},
+                    map: map
+                  });
+              }
+            google.maps.event.addDomListener(window, 'load', initialize); 
+          });
+
+        </script>
       </div>
+
     {% endfor %}
+
   </section>
 
   <section>
@@ -48,4 +78,8 @@
 </main>
 
 
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=">
+ </script>
 {% endblock %}
+

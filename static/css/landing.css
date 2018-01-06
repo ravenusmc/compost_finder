@@ -1,6 +1,12 @@
 /****************************
 Generic CSS for the entire page 
 *****************************/
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
 .center {
   text-align: center;
 }
@@ -10,7 +16,7 @@ CSS For the main area
 *****************************/
 
 #landingPage_main {
-  margin-top: 50px;
+  flex: 1;
   display: grid; 
   grid-template-columns: repeat(3, auto);
 }
@@ -23,6 +29,21 @@ CSS For the main area
 }
 
 .info_section {
+  display: flex;
+  flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
+  border: 2px solid blue;
+}
+
+.user_info_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map {
+  height: 400px;
+  width: 400px;
+  display: inline-block;
 }
