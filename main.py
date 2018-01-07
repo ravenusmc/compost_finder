@@ -90,10 +90,7 @@ def landing():
     user.build_user(row)
     #With this query I'm pulling all people in the DB who live in a certain area. 
     users = db.find_by_city(user)
-    print(users)
-    # print('RESPONSE', users[0][2])
-
-    return render_template('landing.html', users = users)
+    return render_template('landing.html', gardener = row, users = users)
 
 #This route will take the user to a page explaining why one should compost
 @app.route('/why')

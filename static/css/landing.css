@@ -26,6 +26,7 @@ CSS For the main area
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 }
 
 .info_section {
@@ -33,17 +34,22 @@ CSS For the main area
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px solid blue;
+  box-shadow: 5px 10px #888888;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
 .user_info_area {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 300px;
 }
 
 .map {
   height: 400px;
   width: 400px;
+  border-radius: 8px;
   display: inline-block;
 }

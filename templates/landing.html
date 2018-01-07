@@ -11,10 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Sign Up</a>
+        <a class="nav-link" href="/landing">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/why">Why Compost</a>
@@ -34,6 +31,7 @@
   <section class='section_two'>
     <h1>People Willing to Provide Compost</h1>
     <h3>In your area: </h3>
+    <h6>Green Dot is YOUR location! Red Dot is other persons location!</h6>
 
     {% for user in users %}
       <div class='info_section'>
@@ -43,29 +41,51 @@
             <h5>Email: {{ user[2] }}</h5>
           </div>
 
-          <div id="map_{{ user[0] }}" class='map'></div>
+          <div id="map_{{ user[0] }}" class='map'>
+          </div>
+
+          <!-- The script tag here is what will bring in the google maps API. -->
           <script type="text/javascript">
           
           $(document).ready(function(){
 
               function initialize() {
 
+                  //I created this array of arrays to hold the data to place multiple markers on the google 
+                  //maps using different titles. 
+                  var all_people = [
+                    ['User', {{ gardener[7] }}, {{ gardener[8] }}, ('http://maps.google.com/mapfiles/ms/icons/green-dot.png') ],
+                    ['Willing to provide organic material', {{ user[7] }}, {{ user[8] }}, ('http://maps.google.com/mapfiles/ms/icons/red-dot.png')]
+                  ];
+
+                  //This variable will be used to center each individual map of the user who is willing to 
+                  //provide organic material for compost 
                   var user_{{ user[0] }} = {lat: {{ user[7] }}, lng: {{ user[8] }} };
 
+                  //This sets up the google map object
                   var map = new google.maps.Map(document.getElementById('map_{{ user[0] }}'), {
                     zoom: 15,
                     center: user_{{ user[0] }}
                   });
 
-                  var marker = new google.maps.Marker({
-                    position: user_{{ user[0] }},
-                    map: map
-                  });
+                  //To display the markers and seperate titles, I loop through the array of array's that 
+                  //I created above. 
+                  for (var i = 0; i < all_people.length; i++){
+                      var position = new google.maps.LatLng(all_people[i][1], all_people[i][2]);
+                      var marker = new google.maps.Marker({
+                        // position: user_{{ user[0] }},
+                        position: position,
+                        icon: all_people[i][3],
+                        map: map,
+                        title: all_people[i][0] 
+                    });
+                  }
               }
             google.maps.event.addDomListener(window, 'load', initialize); 
           });
 
         </script>
+
       </div>
 
     {% endfor %}
@@ -79,7 +99,7 @@
 
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnopVkPE94o2sa--QzT9gMbyqigL1ZDEQ">
  </script>
 {% endblock %}
 
