@@ -53,14 +53,6 @@ CSS code for the login page
 CSS code for the sign up page
 ***************************/
 
-.signup_Heading {
-  color: yellow;
-  background-color: rgba(0,0,0,0.7);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
 #signUpMain {
   background-image: url('/static/img/trash.jpg');
   height: 650px;
@@ -73,6 +65,14 @@ CSS code for the sign up page
   align-items: center;
 }
 
+.signup_Heading {
+  color: yellow;
+  background-color: rgba(0,0,0,0.7);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .signup_button {
   margin-top: 10px;
   border-radius: 10px;
@@ -82,3 +82,24 @@ CSS code for the sign up page
   color:  #003078;
 }
 
+/**************************
+Media Queries 
+***************************/
+
+@media only all and (max-width: 768px) {
+
+  #signUpMain {
+    height: 810px;
+  }
+
+  .signup_Heading {
+    margin-top: -50px;
+  }
+
+  .signup_Heading h1 {
+    text-align: center;
+    font-size: 25px;
+  }
+
+
+}
