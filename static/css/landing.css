@@ -53,3 +53,28 @@ CSS For the main area
   border-radius: 8px;
   display: inline-block;
 }
+
+/****************************
+Media Querie Area 
+*****************************/
+
+@media only all and (max-width: 768px) {
+
+  .section_two h1, h3, h6 {
+    text-align: center;
+  }
+
+  .info_section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map {
+    height: 300px;
+    width: 300px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+}
+
