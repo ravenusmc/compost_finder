@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/edit.css') }}">
+
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Compost Finder</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/landing">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/why">Why Compost</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/edit">Edit Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main id='edit_page_main'>    <form method="POST">
+  <div class='edit_page_form'>
+    <form>
+      <input id='username' class='inputEditPage'  name='username' type='text' required/><br>
+      <input id='email' class='inputEditPage' name='email' type='text' required/><br>
+      <input id='address' class='inputEditPage' name='address' type='text' required/><br>
+      <input id='city' class='inputEditPage' name='city' type='text' required/></br>
+      <input id='state' class='inputEditPage' name='state' type='text' required/></br>
+      <input id='zip' class='inputEditPage' name='zip' type='text' required/></br>
+      Wants Compost (Gardener)<input name='compost' value="gardener" type="radio">
+      Provide Compost Material (Neighbor)<input name='compost' value='neighbor' type="radio">
+      <button class='signup_button'>Submit</button>
+    </form>
+  </div>
+</main>
+
+
+<script type="text/javascript">
+  
+  //This function will insert the user information from the user object and insert 
+  //it into the input boxes of the form. 
+  function displayInfo() {
+
+    document.getElementById('username').value = '{{ user[1] }}';
+    document.getElementById('email').value = '{{ user[2] }}';
+    document.getElementById('address').value = '{{ user[3] }}';
+    document.getElementById('city').value = '{{ user[4] }}';
+    document.getElementById('state').value = '{{ user[5] }}';
+    document.getElementById('zip').value = {{ user[6] }};
+
+  }
+
+  window.onload = displayInfo();
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+/****************************
+Generic CSS for the entire edit page 
+*****************************/
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.signup_button {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #784800;
+  border-color: #784800;
+  color:  #003078;
+}
+
+
+/****************************
+Generic CSS for the main section
+*****************************/
+#edit_page_main {
+  flex: 1;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit_page_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.inputEditPage {
+  margin-top: 5px;
+  width: 300px;
+}
