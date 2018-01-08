@@ -76,5 +76,13 @@ class Connection():
         rows = self.cursor.fetchall()
         return rows
 
+    def update(self, username_original, username, email, address, city, state, zipcode, person_type):
+        self._SQL = """UPDATE users SET username = %s, email = %s, address = %s, city = %s, state = %s, zipcode = %s, type = %s
+        where username = %s"""
+        self.cursor.execute(self._SQL, (username, email, address, city, state, zipcode, person_type, username_original))
+        self.conn.commit()
+        self.cursor.close()
+        self.conn.close()
+
 
 

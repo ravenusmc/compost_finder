@@ -108,19 +108,31 @@ def logout():
     return redirect(url_for('landing'))
 
 #This route will allow the user to edit their profile 
-@app.route('/edit')
+@app.route('/edit', methods=['GET', 'POST'])
 def edit():
     if 'username' not in session:
         return redirect(url_for('signup'))
-    #Pulling the username which I'll use in the database. 
-    username = session['username']
-    #Creating user object 
-    user = User()
-    #Creating a connection to the database 
-    db = Connection()
-    #Pulling the user information out of the database. 
-    user = db.pull_user_info(username)
-    return render_template('edit.html', user = user )
+    else: 
+        #Pulling the username which I'll use in the database. 
+        username_original = session['username']
+        #Creating user object 
+        user = User()
+        #Creating a connection to the database 
+        db = Connection()
+        #Pulling the user information out of the database. 
+        user = db.pull_user_info(username_original)
+        if request.method == 'POST':
+            username = request.form['username']
+            email = request.form['email']
+            address = request.form['address']
+            city = request.form['city']
+            state = request.form['state']
+            zipcode = request.form['zip']
+            person_type = request.form['compost']
+            
+            db.update(username_original, username, email, address, city, state, zipcode, person_type)
+            return redirect(url_for('edit'))
+        return render_template('edit.html', user = user )
 
 # set the secret key. keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
