@@ -21,6 +21,7 @@ body {
 /****************************
 Generic CSS for the main section
 *****************************/
+
 #edit_page_main {
   flex: 1;
   margin-top: 50px;
@@ -47,3 +48,17 @@ form {
   margin-top: 5px;
   width: 300px;
 }
+
+/****************************
+Media Queries 
+*****************************/
+
+@media only all and (max-width: 768px) {
+
+  #edit_page_main h6 {
+    text-align: center;
+  }
+  
+}
+
+
