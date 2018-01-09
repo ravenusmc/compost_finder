@@ -58,6 +58,13 @@ Media Queries
   #edit_page_main h6 {
     text-align: center;
   }
+
+  .inputEditPage {
+    height: 75px;
+    font-size: 17px;
+    margin-top: 5px;
+    width: 300px;
+  }
   
 }
 

@@ -11,14 +11,19 @@ I got the idea for this project during my time volunteering at Truly Living Well
 1. Clone the repo
 2. Run [sudo] pip3 install or pip3 install flask
 3. Run python3 main.py to run the application
-6. Visit localhost:5000 to see the application
+4. Visit localhost:5000 to see the application
+
+or 
+
+See YouTube video, link below, to see what the project looks like. 
 
 ### Technology Stack
 
-1. Flask-0.12
-2. Python-3.4
+1. Python-3.4
+2. Flask-0.12
 3. MySQL-5.6.26
 4. Bootstrap-4
+5. Font-Awesome
 
 ### Operation
 
