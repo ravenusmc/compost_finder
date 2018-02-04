@@ -24,6 +24,7 @@ See YouTube video, link below, to see what the project looks like.
 3. MySQL-5.6.26
 4. Bootstrap-4
 5. Font-Awesome
+6. Google Maps API 
 
 ### Operation
 
@@ -38,9 +39,9 @@ page or contact them to use it. Information also gathered from https://www.small
 
 # Preview
 
-To see a video that talks about this project please go here: Coming Soon
+To see a video that talks about this project please go here: https://www.youtube.com/watch?v=KckndDFxPqU
 
-Blog entry: Coming Soon
+Blog entry: https://codingsaga.wordpress.com/2018/02/04/compost-finder/
 
 
 
